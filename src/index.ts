@@ -2,7 +2,7 @@ import app from './app';
 import logger from './utils/logger';
 
 const port = process.env.PORT_BE || 8000;
-
+console.log("HEHE")
 logger.info(`---------------------API APP--------------------`);
 logger.info(`Configured PORT_BE: ${process.env.PORT_BE}`);
 app.listen(port, () => {
