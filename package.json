@@ -1,0 +1,47 @@
+{
+    "name": "seiyara.server",
+    "version": "1.0.50",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "bun run --watch src/index.ts",
+        "dev-bot": "bun run --watch src/index-bot.ts",
+        "start:server": "/home/ubuntu/.bun/bin/bun run src/index.ts",
+        "start:bot": "bun run src/index-bot.ts",
+        "start:bot-message": "bun run src/index-bot-message.ts",
+        "start:bot-game-event": "bun run src/index-bot-game-event.ts",
+        "start:bot-ai": "bun run src/index-bot-ai.ts --verbose",
+        "start:bot-checkin": "bun run src/index-bot-checkin.ts --verbose",
+        "pretty": "prettier --config .prettierrc.json --write \"./**/*.{ts,js}\""
+    },
+    "dependencies": {
+        "@cosmjs/proto-signing": "^0.32.4",
+        "@cosmjs/stargate": "^0.32.4",
+        "@elysiajs/cors": "^1.1.1",
+        "@telegram-auth/server": "^1.0.4",
+        "axios": "^1.7.7",
+        "crypto-js": "^4.2.0",
+        "decimal.js": "^10.4.3",
+        "elysia": "latest",
+        "ethereumjs-util": "^7.1.5",
+        "ethers": "5",
+        "geoip-lite": "^1.4.10",
+        "ioredis": "^5.4.1",
+        "jsonwebtoken": "^9.0.2",
+        "mongodb": "^6.9.0",
+        "mongoose": "^8.7.0",
+        "telegraf": "^4.16.3",
+        "winston": "^3.15.0",
+        "winston-daily-rotate-file": "^5.0.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.12.0",
+        "@types/crypto-js": "^4.2.2",
+        "@types/geoip-lite": "^1.4.4",
+        "@types/jsonwebtoken": "^9.0.7",
+        "bun-types": "latest",
+        "eslint": "^9.12.0",
+        "globals": "^15.11.0",
+        "typescript-eslint": "^8.9.0"
+    },
+    "module": "src/index.js"
+}

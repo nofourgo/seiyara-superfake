@@ -1,2 +1,1 @@
-# seiyara-superfake
-Superfake Seiyara
+# seiyara.server
