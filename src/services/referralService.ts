@@ -1,4 +1,3 @@
-import { error } from 'elysia';
 import Referral, { IReferral } from '../models/referral';
 import User, { IUser } from '../models/user';
 import { ACTION, recordActivityLog } from './activityLogService';
