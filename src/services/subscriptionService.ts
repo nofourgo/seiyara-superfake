@@ -26,7 +26,10 @@ export const getUserSubscriptions = async (telegramId: string) => {
         userSubs.map(async (userSub) => {
             let claimed = true;
             if (userSub.type == 'basic_daily_reward' || userSub.type == 'advanced_daily_reward') {
-                const claimStr = await redisCommands.get(userSubClaimKey(userSub._id as string));
+                const claimStr = await redisCommands.get(
+                    userSubClaimKey(userSub._id.toString())
+                );
+
                 claimed = !claimStr ? false : true;
             }
             return {
@@ -191,7 +194,12 @@ export const claimSubscription = async (userId: string, cfgSubscriptionId: strin
         throw new Error('This subscription is not found or expired');
     }
 
-    const isFirstClaimed = await redisHelper.set(userSubClaimKey(currentSub._id as string), 'claimed', { nx: true, ex: 24 * 60 * 60 });
+    const isFirstClaimed = await redisHelper.set(
+        userSubClaimKey(currentSub._id.toString()),
+        'claimed',
+        { nx: true, ex: 24 * 60 * 60 }
+    );
+
     if (!isFirstClaimed) {
         throw new Error('You have claimed this subscription reward today');
     }
